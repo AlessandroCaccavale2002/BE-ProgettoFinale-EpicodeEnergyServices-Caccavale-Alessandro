@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+<meta charset="ISO-8859-1">
+<title> Ricerca Fatture</title>
+
+</head>
+<body>
+
+	<h1 style="margin-top:5%;">Ricerca Fatture</h1>
+
+		
+
+	<div class="my-container">
+	<div class="row">
+			<div class="col" style="align-items: center;">
+				<h5 class="card-title">Ricerca fatture tramite ragione sociale del cliente</h5>
+				<div class="card">
+					<div class="card-body">
+						<form method="get" action="/fatturacontroller/getfatturabyclienteform">
+							<fieldset>
+								<label for="ragioneSociale"></label> 
+								<input type="text"name="ragioneSociale" placeholder="Inserire ragione sociale del cliente">
+							</fieldset>
+							<br>
+							<button type="submit" class="btn btn-primary" value="Ricerca">Ricerca</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col" style="align-items: center;">
+				<h5 class="card-title">Ricerca fatture tramite stato fattura</h5>
+				<div class="card">
+					<div class="card-body">
+						<form method="get" action="/fatturacontroller/getfatturabystatofatturaform">
+							<fieldset>
+								<label for="statoFattura"></label> 
+								<input type="text"name="statoFattura" placeholder="Inserire stato fattura">
+							</fieldset>
+							<br>
+							<button type="submit" class="btn btn-primary" value="Ricerca">Ricerca</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col" style="align-items: center;">
+				<h5 class="card-title" style="padding-bottom: 25px;">Ricerca fatture per data<br></h5>
+				<div class="card">
+					<div class="card-body">
+						<form method="get" action="/fatturacontroller/getfatturabydataform">
+							<fieldset>
+								<label for="data"></label> 
+								<input type="date" name="data" placeholder="Inserire data della fattura">
+							</fieldset>
+							<br>
+							<button type="submit" class="btn btn-primary" value="Ricerca">Ricerca</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col" style="align-items: center;">
+				<h5 class="card-title" style="padding-bottom: 25px;">Ricerca fatture per anno</h5>
+				<div class="card">
+					<div class="card-body">
+						<form method="get" action="/fatturacontroller/getfatturabyannoform">
+							<fieldset>
+								<label for="anno"></label> 
+								<input type="text"name="anno" placeholder="Inserire anno della fattura">
+							</fieldset>
+							<br>
+							<button type="submit" class="btn btn-primary" value="Ricerca">Ricerca</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col" style="align-items: center;">
+				<h5 class="card-title">Ricerca fatture per range di importo</h5>
+				<div class="card">
+					<div class="card-body">
+						<form method="get" action="/fatturacontroller/getfatturabyrangeimportoform">
+							<fieldset>
+								<label for="importoMin"></label>
+					            <input type="text" name =importoMin placeholder="Inserire importo minimo">
+					            <p></p>
+					            <label for="importoMax"></label>
+					            <input type="text" name =importoMax placeholder="Inserire importo massimo">
+							</fieldset>
+							<br>
+							<button type="submit" class="btn btn-primary" value="Ricerca">Ricerca</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			</div>
+
+	</div>
+	
+	<a href="elencoadmin.html">Torna alla pagina precedente</a>
+</body>
+</html>

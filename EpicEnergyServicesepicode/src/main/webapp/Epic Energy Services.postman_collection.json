@@ -1,0 +1,1133 @@
+{
+	"info": {
+		"_postman_id": "eeeb5017-021d-408d-812e-b8da8823f89b",
+		"name": "Epic Energy Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Provincia",
+			"item": [
+				{
+					"name": "Salva Provincia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Sassari\",\r\n    \"sigla\":\"SS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/provinciacontroller/salvaprovincia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provinciacontroller",
+								"salvaprovincia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Provincia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/provinciacontroller/eliminaprovincia/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provinciacontroller",
+								"eliminaprovincia",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Provincia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Foggia123\",\r\n    \"sigla\":\"FOsvs\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/provinciacontroller/aggiornaprovincia/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provinciacontroller",
+								"aggiornaprovincia",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caricamento Province da file CSV",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/provinciacontroller/caricamentocsvprovince",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provinciacontroller",
+								"caricamentocsvprovince"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comune",
+			"item": [
+				{
+					"name": "Salva Comune",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Acilia\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Roma\",\r\n        \"sigla\":\"RO\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comunecontroller/salvacomune",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comunecontroller",
+								"salvacomune"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Comune",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comunecontroller/eliminacomune/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comunecontroller",
+								"eliminacomune",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comune",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Costantinopoli\",\r\n    \"provincia\":{\r\n        \"id\":\"5\",\r\n        \"nome\":\"Sassari\",\r\n        \"sigla\":\"SS\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comunecontroller/aggiornacomune/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comunecontroller",
+								"aggiornacomune",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Caricamento Comuni da file CSV",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comunecontroller/caricamentocsvcomuni",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comunecontroller",
+								"caricamentocsvcomuni"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Indirizzo",
+			"item": [
+				{
+					"name": "Salva Indirizzo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"via\":\"Via delle Baleniere\",\r\n    \"civico\":\"19\",\r\n    \"cap\":\"00122\",\r\n    \"localita\":\"marittima\",\r\n        \"comune\":{\r\n        \"id\":\"18\",\r\n        \"nome\":\"Balme\",\r\n        \"provincia\":{\r\n            \"id\":\"97\",\r\n            \"nome\":\"Torino\",\r\n            \"sigla\":\"TO\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/indirizzocontroller/salvaindirizzo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indirizzocontroller",
+								"salvaindirizzo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Indirizzo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/indirizzocontroller/eliminaindirizzo/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indirizzocontroller",
+								"eliminaindirizzo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Indirizzo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"via\":\"Via delle Quinquermi\",\r\n    \"civico\":\"20\",\r\n    \"cap\":\"00121\",\r\n    \"localita\":\"centrale\",\r\n        \"comune\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Acilia\",\r\n        \"provincia\":{\r\n            \"id\":\"2\",\r\n            \"nome\":\"Roma\",\r\n            \"sigla\":\"RM\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/indirizzocontroller/aggiornaindirizzo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indirizzocontroller",
+								"aggiornaindirizzo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stato Fattura",
+			"item": [
+				{
+					"name": "Salva Stato Fattura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Non Saldata\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/statofatturacontroller/salvastatofattura",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"statofatturacontroller",
+								"salvastatofattura"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Stato Fattura",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/statofatturacontroller/eliminastatofattura/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"statofatturacontroller",
+								"eliminastatofattura",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aggiorna Stato Fattura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Non Saldato\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/statofatturacontroller/aggiornastatofattura/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"statofatturacontroller",
+								"aggiornastatofattura",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Salva Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ragioneSociale\":\"Cliente SPA\",\r\n    \"partitaIva\":\"12345678912\",\r\n    \"tipoCliente\":\"SPA\",\r\n    \"email\":\"cliente@email.it\",\r\n    \"pec\":\"cliente@pec.com\",\r\n    \"telefono\":\"388451986\",\r\n    \"nomeContatto\":\"Souha\",\r\n    \"cognomeContatto\":\"Poretti\",\r\n    \"telefonoContatto\":\"2335648995\",\r\n    \"emailContatto\":\"giacomino@email.it\",\r\n    \"indirizzoSedeOperativa\": {\r\n        \"id\":\"1\",\r\n        \"via\":\"Via delle Baleniere\",\r\n        \"civico\":\"19\",\r\n        \"cap\":\"00122\",\r\n        \"localita\":\"marittima\",\r\n        \"comune\":{\r\n            \"id\":\"18\",\r\n            \"nome\":\"Balme\"\r\n        }\r\n    },\r\n    \"indirizzoSedeLegale\":{\r\n        \"id\":\"1\",\r\n        \"via\":\"Via delle Baleniere\",\r\n        \"civico\":\"19\",\r\n        \"cap\":\"00122\",\r\n        \"localita\":\"marittima\",\r\n        \"comune\":{\r\n            \"id\":\"18\",\r\n            \"nome\":\"Balme\"\r\n        }\r\n    },\r\n    \"dataInserimento\":\"2021-05-12\",\r\n    \"dataUltimoContatto\":\"2020-06-23\",\r\n    \"fatturatoAnnuale\":\"2000.00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/salvacliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"salvacliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/eliminacliente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"eliminacliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ragioneSociale\":\"Cliente SPA\",\r\n    \"partitaIva\":\"12345678912\",\r\n    \"tipoCliente\":\"SPA\",\r\n    \"email\":\"cliente@email.it\",\r\n    \"pec\":\"cliente@pec.com\",\r\n    \"telefono\":\"388451986\",\r\n    \"nomeContatto\":\"Giovanni\",\r\n    \"cognomeContatto\":\"Storti\",\r\n    \"telefonoContatto\":\"2335648995\",\r\n    \"emailContatto\":\"giova@email.it\",\r\n    \"indirizzoSedeOperativa\": {\r\n        \"id\":\"1\",\r\n        \"via\":\"Via delle Quinqueremi\",\r\n        \"civico\":\"20\",\r\n        \"cap\":\"00121\",\r\n        \"localita\":\"centrale\",\r\n        \"comune\":{\r\n            \"id\":\"1\",\r\n            \"nome\":\"Acilia\"\r\n        }\r\n    },\r\n    \"indirizzoSedeLegale\":{\r\n        \"id\":\"1\",\r\n        \"via\":\"Via delle Quinqueremi\",\r\n        \"civico\":\"20\",\r\n        \"cap\":\"00121\",\r\n        \"localita\":\"centrale\",\r\n        \"comune\":{\r\n            \"id\":\"1\",\r\n            \"nome\":\"Acilia\"\r\n        }\r\n    },\r\n    \"datInserimento\":\"2021-05-12\",\r\n    \"dataUltimoContatto\":\"2020-06-23\",\r\n    \"fatturatoAnnuale\":\"2000.00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/updatecliente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"updatecliente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ordina Clienti per nome contatto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/clientepagesort?page=0&size=4&sort=ragioneSociale",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"clientepagesort"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								},
+								{
+									"key": "sort",
+									"value": "ragioneSociale"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ordina Clienti per fatturato annuale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/clientepagesort?page=0&size=4&sort=fatturatoAnnuale",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"clientepagesort"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								},
+								{
+									"key": "sort",
+									"value": "fatturatoAnnuale"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ordina Clienti per data di inserimento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/clientepagesort?page=0&size=4&sort=dataInserimento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"clientepagesort"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								},
+								{
+									"key": "sort",
+									"value": "dataInserimento"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ordina Clienti per data ultimo contatto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/clientepagesort?page=0&size=4&sort=dataUltimoContatto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"clientepagesort"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								},
+								{
+									"key": "sort",
+									"value": "dataUltimoContatto"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ordina Clienti per provincia della sede legale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/clientepagesort?page=0&size=4&sort=indirizzoSedeLegale.comune.provincia.nome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"clientepagesort"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								},
+								{
+									"key": "sort",
+									"value": "indirizzoSedeLegale.comune.provincia.nome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clienti Fatturato Annuale Paginato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/getclientibyfatturatoannuale?fatturatoAnnuale=2000&page=0&size=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"getclientibyfatturatoannuale"
+							],
+							"query": [
+								{
+									"key": "fatturatoAnnuale",
+									"value": "2000"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clienti by Data ultimo contatto Paging",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/getclientebydataultimocontatto?dataUltimoContatto=2020-06-23&page=0&size=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"getclientebydataultimocontatto"
+							],
+							"query": [
+								{
+									"key": "dataUltimoContatto",
+									"value": "2020-06-23"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clienti by Data Inserimento Paging",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/getclientibydatainserimento?dataInserimento=2021-05-12&page=0&size=11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"getclientibydatainserimento"
+							],
+							"query": [
+								{
+									"key": "dataInserimento",
+									"value": "2021-05-12"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clienti by ragione sociale parziale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientecontroller/getclientebyragionesocialeparziale?ragioneSociale=SPA&page=0&size=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientecontroller",
+								"getclientebyragionesocialeparziale"
+							],
+							"query": [
+								{
+									"key": "ragioneSociale",
+									"value": "SPA"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fattura",
+			"item": [
+				{
+					"name": "Salva Fattura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":\"2022-05-16\",\r\n    \"numero\":\"123456\",\r\n    \"anno\":\"2023\",\r\n    \"importo\":\"200.00\",\r\n    \"stato\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Saldata\"\r\n    },\r\n    \"cliente\":{\r\n        \"id\":\"4\",\r\n    \"ragioneSociale\":\"Cliente SPA\",\r\n    \"partitaIva\":\"12345678912\",\r\n    \"tipoCliente\":\"SPA\",\r\n    \"email\":\"cliente@email.it\",\r\n    \"pec\":\"cliente@pec.com\",\r\n    \"telefono\":\"388451986\",\r\n    \"nomeContatto\":\"Mario\",\r\n    \"cognomeContatto\":\"Poretti\",\r\n    \"telefonoContatto\":\"2335648995\",\r\n    \"emailContatto\":\"giacomino@email.it\",\r\n    \"indirizzoSedeOperativa\": {\r\n        \"id\":\"1\",\r\n        \"via\":\"Via delle Baleniere\",\r\n        \"civico\":\"19\",\r\n        \"cap\":\"00122\",\r\n        \"localita\":\"marittima\",\r\n        \"comune\":{\r\n            \"id\":\"18\",\r\n            \"nome\":\"Balme\"\r\n        }\r\n    },\r\n    \"indirizzoSedeLegale\":{\r\n        \"id\":\"1\",\r\n        \"via\":\"Via delle Baleniere\",\r\n        \"civico\":\"19\",\r\n        \"cap\":\"00122\",\r\n        \"localita\":\"marittima\",\r\n        \"comune\":{\r\n            \"id\":\"18\",\r\n            \"nome\":\"Balme\"\r\n        }\r\n    },\r\n    \"dataInserimento\":\"2021-05-12\",\r\n    \"dataUltimoContatto\":\"2020-06-23\",\r\n    \"fatturatoAnnuale\":\"2000.00\"\r\n}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/salvafattura",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"salvafattura"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Fattura",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/eliminafattura/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"eliminafattura",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fattura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":\"2023-07-15\",\r\n    \"numero\":\"1234\",\r\n    \"anno\":\"2021\",\r\n    \"importo\":\"2345.00\",\r\n    \"stato\":{\r\n        \"id\":\"2\",\r\n        \"nome\":\"Saldata\"\r\n    },\r\n    \"cliente\":{\r\n        \"id\":\"1\",\r\n        \"ragioneSociale\":\"Cliente SPA\",\r\n        \"partitaIva\":\"12345678912\",\r\n        \"tipoCliente\":\"SPA\",\r\n        \"email\":\"cliente@email.it\",\r\n        \"pec\":\"cliente@pec.com\",\r\n        \"telefono\":\"388451986\",\r\n        \"nomeContatto\":\"Giacomo\",\r\n        \"cognomeContatto\":\"Poretti\",\r\n        \"telefonoContatto\":\"2335648995\",\r\n        \"emailContatto\":\"giacomino@email.it\",\r\n        \"indirizzoSedeOperativa\": {\r\n            \"id\":\"1\",\r\n            \"via\":\"Via delle Baleniere\",\r\n            \"civico\":\"19\",\r\n            \"cap\":\"00121\",\r\n            \"localita\":\"montagna\",\r\n            \"comune\":{\r\n                \"id\":\"9\",\r\n                \"nome\":\"Acilia\"\r\n            }\r\n        },\r\n        \"indirizzoSedeLegale\":{\r\n            \"id\":\"1\",\r\n            \"via\":\"Via delle Baleniere\",\r\n            \"civico\":\"19\",\r\n            \"cap\":\"00121\",\r\n            \"localita\":\"montagna\",\r\n            \"comune\":{\r\n                \"id\":\"9\",\r\n                \"nome\":\"Acilia\"\r\n            }\r\n        },\r\n    \"datInserimento\":\"2021-05-12\",\r\n    \"dataUltimoContatto\":\"2020-06-23\",\r\n    \"fatturatoAnnuale\":\"600000.00\"\r\n}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/aggiornafattura/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"aggiornafattura",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fattura by Cliente (ragioneSociale)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/getfatturabycliente?ragioneSociale=Cliente SPA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"getfatturabycliente"
+							],
+							"query": [
+								{
+									"key": "ragioneSociale",
+									"value": "Cliente SPA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fattura by Stato Fattura",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/getfatturabystatofattura?statoFattura=Non Saldata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"getfatturabystatofattura"
+							],
+							"query": [
+								{
+									"key": "statoFattura",
+									"value": "Non Saldata"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fattura By Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/getfatturabydata?data=2023-05-16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"getfatturabydata"
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "2023-05-16"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fatture By Anno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/getfatturabyanno?anno=2023",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"getfatturabyanno"
+							],
+							"query": [
+								{
+									"key": "anno",
+									"value": "2023"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fatture By Range Importo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fatturacontroller/getfatturabyrangeimporto?importoMin=500&importoMax=3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturacontroller",
+								"getfatturabyrangeimporto"
+							],
+							"query": [
+								{
+									"key": "importoMin",
+									"value": "500"
+								},
+								{
+									"key": "importoMax",
+									"value": "3000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Salva User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"giova\",\r\n    \"email\":\"giova@email.it\",\r\n    \"password\":\"123456\",\r\n    \"nome\":\"Giovanni\",\r\n    \"cognome\":\"Storti\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usercontroller/usersave",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usercontroller",
+								"usersave"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Aldo\",\r\n    \"email\":\"Aldo@email.it\",\r\n    \"password\":\"aldoermejo\",\r\n    \"nome\":\"Aldo\",\r\n    \"cognome\":\"Baglio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Aldo\",\r\n    \"password\":\"aldoermejo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Regione",
+			"item": [
+				{
+					"name": "Caricamento Regioni da file CSV",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/regionecontroller/caricamentocsvregioni",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"regionecontroller",
+								"caricamentocsvregioni"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

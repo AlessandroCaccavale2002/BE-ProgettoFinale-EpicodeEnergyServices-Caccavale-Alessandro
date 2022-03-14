@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+<meta charset="ISO-8859-1">
+<title> Dettagli Cliente</title>
+
+</head>
+<body>
+		
+		
+		
+		<h1 style="margin-top:5%; padding-bottom:2.5%;">Dettagli Cliente</h1>
+		
+		<div class="my-container">
+		 		<table class="table">
+		 		<tbody>
+		 			<tr>
+		 			<th scope="row">Id</th>
+		 			<td th:text="${cliente.id}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Ragione Sociale</th>
+		 			<td th:text="${cliente.ragioneSociale}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Partita IVA</th>
+		 			<td th:text="${cliente.partitaIva}"></td>
+		 			</tr>
+		 		
+		 			<tr>
+		 			<th scope="row">Fatturato Annuale</th>
+		 			<td th:text="${cliente.fatturatoAnnuale}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Tipo Cliente</th>
+				      <td th:text="${cliente.tipoCliente}"></td>
+		 			</tr>
+		 		
+		 			<tr>
+		 			<th scope="row">Email</th>
+				      <td th:text="${cliente.email}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Pec</th>
+				      <td th:text="${cliente.pec}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Telefono</th>
+				      <td th:text="${cliente.telefono}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Nome Contatto</th>
+				      <td th:text="${cliente.nomeContatto}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Cognome Contatto</th>
+				      <td th:text="${cliente.cognomeContatto}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Email Contatto</th>
+				      <td th:text="${cliente.emailContatto}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Telefono Contatto</th>
+				      <td th:text="${cliente.telefonoContatto}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Indirizzo Sede Operativa</th>
+				      <td th:text="${cliente.indirizzoSedeOperativa}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Indirizzo Sede Legale</th>
+				      <td th:text="${cliente.indirizzoSedeLegale}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Data Inserimento</th>
+				      <td th:text="${cliente.dataInserimento}"></td>
+		 			</tr>
+		 			
+		 			<tr>
+		 			<th scope="row">Data Ultimo Contatto</th>
+				      <td th:text="${cliente.dataUltimoContatto}"></td>
+		 			</tr>
+		 			</tbody>
+		 		</table>
+			</div>
+	
+	<a href="/index.html">Torna alla pagina precedente</a>
+
+</body>
+</html>

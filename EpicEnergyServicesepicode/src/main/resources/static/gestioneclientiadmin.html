@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+<meta charset="ISO-8859-1">
+<title> Gestione Clienti</title>
+
+</head>
+<body>
+
+		<h1 style="margin-top:5%; padding-bottom:2.5%;">Gestione Clienti</h1>
+
+		
+		
+		<div class="my-container" style="margin-bottom: 30px; margin-right: 150px;">
+		
+		<div class="row">
+			<div class="col" style="align-items: center;">
+				<h4 class="card-title">Salva Cliente</h4>
+				<div class="card" style="width: 45rem; ">
+				<div class="card-body">
+					<form method="get" action="/clientecontroller/salvaclienteform" >
+					<div style="display: flex;">
+						<fieldset>
+						<div style="text-align:left">
+							<label for="ragioneSociale"></label>
+							<span class="input-group-text" id="basic-addon1">Ragione sociale</span>
+							<input type="text"name="ragioneSociale" required>
+						</div>	
+							
+						<div style="text-align:left">
+							<label for="partitaIva"></label>
+							<span class="input-group-text" id="basic-addon1">Partita iva</span>
+							<input type="text"name="partitaIva" required>
+						</div>	
+							
+						<div style="text-align:left">
+							<label for="tipoCliente"></label>
+							<span class="input-group-text" id="basic-addon1">Tipo cliente</span>
+							<input type="text"name="tipoCliente" required>
+						</div>	
+						
+						<div style="text-align:left">
+							<label for="email"></label>
+							<span class="input-group-text" id="basic-addon1">E-Mail</span>
+							<input type="email"name="email" required>
+						</div>	
+						
+						<div style="text-align:left">
+							<label for="pec"></label>
+							<span class="input-group-text" id="basic-addon1">Pec</span>
+							<input type="email"name="pec" required>
+						</div>	
+						
+						<div style="text-align:left">
+							<label for="telefono"></label>
+							<span class="input-group-text" id="basic-addon1">Telefono</span>
+							<input type="text"name="telefono" required>
+						</div>	
+						
+						<div style="text-align:left">
+							<label for="nomeContatto"></label>
+							<span class="input-group-text" id="basic-addon1">Nome contatto</span>
+							<input type="text"name="nomeContatto" required>
+						</div>
+							
+						<div style="text-align:left">
+							<label for="cognomeContatto"></label>
+							<span class="input-group-text" id="basic-addon1">Cognome contatto</span>
+							<input type="text"name="cognomeContatto" required>
+						</div>	
+						
+						</fieldset>
+						<fieldset style="margin-left:50px">
+						<div style="text-align:left">
+							<label for="telefonoContatto"></label>
+							<span class="input-group-text" id="basic-addon1">Telefono contatto</span>
+							<input type="text"name="telefonoContatto" required>
+						</div>
+						
+						<div style="text-align:left">
+							<label for="emailContatto"></label>
+							<span class="input-group-text" id="basic-addon1">E-Mail contatto</span>
+							<input type="email"name="emailContatto" required>
+						</div>
+							
+						<div style="text-align:left">
+							<label for="via"></label>
+							<span class="input-group-text" id="basic-addon1">Via sede operativa</span> 
+							<input type="text"name="via" required>
+						</div>	
+						
+						<div style="text-align:left">
+							<label for="civico"></label>
+							<span class="input-group-text" id="basic-addon1">Civico sede operativa</span> 
+							<input type="text"name="civico" required>
+						</div>
+						
+						<div style="text-align:left">	
+							<label for="cap"></label>
+							<span class="input-group-text" id="basic-addon1">CAP sede operativa</span>
+							<input type="text"name="cap" required>
+						</div>
+						
+						<div style="text-align:left">
+							<label for="localita"></label>
+							<span class="input-group-text" id="basic-addon1">Localita sede operativa</span>
+							<input type="text"name="localita" required>
+						</div>
+							
+						<div style="text-align:left">
+							<label for="nomeComune"></label>
+							<span class="input-group-text" id="basic-addon1">Comune sede operativa</span>
+							<input type="text"name="nomeComune" required>
+						</div>
+						<br><br>
+						<button type="submit" class="btn btn-primary" value="Ricerca">Salva</button>
+						<button type="reset" class="btn btn-primary" value="Reset">Reset </button>
+						
+						</fieldset>
+						<fieldset style="margin-left:50px">
+							<div style="text-align:left">
+								<label for="viaSD"></label>
+								<span class="input-group-text" id="basic-addon1">Via sede legale</span>
+								<input type="text"name="viaSD" required>
+							</div>
+								
+							<div style="text-align:left">
+								<label for="civicoSD"></label>
+								<span class="input-group-text" id="basic-addon1">Civico sede legale</span>
+								<input type="text"name="civicoSD" required>
+							</div>
+								
+							<div style="text-align:left">
+								<label for="capSD"></label>
+								<span class="input-group-text" id="basic-addon1">CAP sede legale</span>
+								<input type="text"name="capSD" required>
+							</div>
+							
+							<div style="text-align:left">
+								<label for="localitaSD"></label>
+								<span class="input-group-text" id="basic-addon1">Localita sede legale</span>
+								<input type="text"name="localitaSD" required>
+							</div>
+								
+							<div style="text-align:left">
+								<label for="nomeComuneSD"></label>
+								<span class="input-group-text" id="basic-addon1">Comune sede legale</span>
+								<input type="text"name="nomeComuneSD" required>
+							</div>
+								
+							<div style="text-align:left">
+								<label for="fatturatoAnnuale"></label>
+								<span class="input-group-text" id="basic-addon1">Fatturato annuale</span>
+								<input type="text"name="fatturatoAnnuale" required>
+							</div>
+							
+							<div style="text-align:left">
+								<label for="dataUltimoContatto"></label>
+								<span class="input-group-text" id="basic-addon1">Data ultimo contatto</span>
+								<input type="date"name="dataUltimoContatto" required>
+							</div>
+						</fieldset>
+						</div>
+					</form>
+				</div>
+			</div>
+		 	</div>
+		 	<div class="col" align="center">
+			 	<h4 class="card-title">Elimina Cliente</h4>
+		 		<div class="card" style="width: 22rem;">
+				<div class="card-body">
+					<form method="get" action="/clientecontroller/eliminaclienteform">
+						<fieldset>
+						<div style="text-align:left">
+							<label for="id"></label>
+							<span class="input-group-text" id="basic-addon1">Id dell'utente</span>
+							<input type="text"name="id" class=form-control required>
+						</div>
+						</fieldset>
+						<br>
+						<button type="submit" class="btn btn-primary" value="Ricerca">Elimina</button>
+					</form>
+					
+				</div>
+			</div>
+		 	</div>
+		</div>
+		<a href="/elencoadmin.html">Torna alla pagina precedente</a>
+
+		</div>
+	
+	
+	</script>
+
+</body>
+</html>

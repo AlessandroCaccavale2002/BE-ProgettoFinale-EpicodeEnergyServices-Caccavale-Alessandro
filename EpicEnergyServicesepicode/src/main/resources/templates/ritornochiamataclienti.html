@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+<meta charset="ISO-8859-1">
+<title> Lista Clienti</title>
+
+</head>
+<body>
+	
+		
+	
+		<h1 style="margin-top:5%; padding-bottom: 2.5%;">Lista Clienti</h1>
+
+		<div class="container" style="width:100%; height:100%; text-align: center">
+		 <div class="row">
+		 	<div class="col">
+		 		<table class="table" style="text-align: left;">
+				  <thead>
+				    <tr>
+				      <th scope="col">Id</th>
+				      <th scope="col">Ragione Sociale</th>
+				      <th scope="col">Partita IVA</th>
+				      <th scope="col">Fatturato Annuale</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="c:${listaClienti}">
+				      <td><a th:href="@{/clientecontroller/dettaglicliente/{id}(id=${c.id})}" th:text="${c.id}"></a></td>
+				      <td th:text="${c.ragioneSociale}"></td>
+				      <td th:text="${c.partitaIva}"></td>
+				      <td th:text="${c.fatturatoAnnuale}"></td>
+				    </tr>
+				  </tbody>
+				</table>
+		 	</div>
+		 </div>
+		</div>
+	
+	<a href="/elencoadmin.html">Torna alla pagina precedente</a>
+
+</body>
+</html>
