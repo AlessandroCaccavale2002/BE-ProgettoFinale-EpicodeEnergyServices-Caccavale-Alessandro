@@ -33,33 +33,15 @@ import it.epicode.beservice.service.UserService;
 			return listUser;
 		}
 		
-		@GetMapping("/userusername/{username}")
-		public User getUserByUsername(@PathVariable(required = true) String username) {
-			return userService.findUserByUsername(username);
-		}
 		
 		@PostMapping("/usersave")
 		public void salvaUser(@RequestBody User user) {
 			userService.saveUser(user);
 		}
 		
-		 @GetMapping(value = "/userpage", produces = MediaType.APPLICATION_JSON_VALUE)
-		 public ResponseEntity<Page<User>> getAllUserPage(Pageable pageable){
-			 Page<User> findAll = userService.findAllUserPageable(pageable);
-			  if (findAll.hasContent()) {
-				  return new ResponseEntity<>(findAll, HttpStatus.OK);
-			  }else {
-		            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		        }}
-		 
-		    @GetMapping(value = "/userpagesort", produces = MediaType.APPLICATION_JSON_VALUE)
-		    public ResponseEntity<List<User>> myGetAllUserPageSizeSort(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "2") Integer size, @RequestParam(defaultValue = "id") String sort) {
-		      List<User> list = userService.findAllUserPageSizeSort(page, size, sort);
-		      return new ResponseEntity<List<User>>(list, new HttpHeaders(), HttpStatus.OK); 
-		    }
 			
-		    @GetMapping(value = "/getallusersortbyname", produces = MediaType.APPLICATION_JSON_VALUE)
-		    public List<User> getAllCittaSortByName() {
-		        return userService.findAllUserSorted();
+		@GetMapping(value = "/getallusersortbyname", produces = MediaType.APPLICATION_JSON_VALUE)
+		public List<User> getAllCittaSortByName() {
+		     return userService.findAllUserSorted();
 		    } 
 }

@@ -22,38 +22,47 @@ import it.epicode.beservice.service.UserDetailsServiceImpl;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	UserDetailsServiceImpl userDetailsService;
-	@Autowired
-	private AuthEntryPointUnauthorizedJwt unauthorizedHandler;
+    UserDetailsServiceImpl userDetailsService;
 
-	@Bean
-	public AuthTokenFilter authenticationJwtTokenFilter() {
-		return new AuthTokenFilter();
-	}
-	
-	@Override
-	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(this.passwordEncoder());
-	}
 
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(4);
+    }
+    @Override
+    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(this.passwordEncoder());
+    }    
+    
+    @Bean
+    public AuthTokenFilter authenticationJwtTokenFilter() {
+        return new AuthTokenFilter();
+    }
+    
+    @Bean
+    public AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.headers().frameOptions().sameOrigin().and().csrf().disable().authorizeRequests()
+            .antMatchers("/auth/**")
+            .permitAll()
+            .antMatchers("/index.html/**")
+            .authenticated()
+            .and()
+            .formLogin()
+            .permitAll()
+            .and()
+//            .exceptionHandling()
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().and().csrf().disable()
-			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-			.authorizeRequests().antMatchers("/**").permitAll()
-			.anyRequest().authenticated();
-		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-	}
+//            .exceptionHandling()
+//            .authenticationEntryPoint((req, res, ex) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "UNAUTHORIZED : " + ex.getMessage()))
+//            .and()
+            .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+    }
 }
