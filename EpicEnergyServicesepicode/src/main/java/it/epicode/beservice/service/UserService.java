@@ -1,8 +1,11 @@
 package it.epicode.beservice.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import it.epicode.beservice.model.User;
 import it.epicode.beservice.repositories.UserRepository;
 
@@ -16,8 +19,8 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public User findUserByUsername(String username) {
-		return userRepository.findUserUsername(username);
+	public Optional<User> findUserByUsername(String username) {
+		return userRepository.findByUsername(username);
 	}
 	
 	public User myFindUserById(Long id) {

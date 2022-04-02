@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" th:href="@{/style.css}"/>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagina Fatture</title>
+
+</head>
+<body class="largo">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Customer Service</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" th:href="@{/web/clienti/homeclienti}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Fatture<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" th:href="@{/web/clienti/clienti}">Clienti</a>
+      </li>
+    </ul>
+    <span sec:authorize="isAuthenticated()" style="color:white" sec:authentication="name">username</span>
+  </div>
+</nav>
+	<hr>
+	<h2 class="scritta">Ricerca</h2>
+	<div class="filtri d-flex flex-wrap justify-content-around">
+
+		<div class="filtro1 type-details w-auto ">
+			<form action="/web/fatture/getbycliente" method="GET">
+				<div class="form-label mb-4 form-group">
+					<label class="scritta"for="floatingInput2">Ricerca per Ragione Sociale</label>
+					<div class="d-flex">
+						<input type="text" class="form-control" id="floatingInput2"
+							name="cliente" placeholder="Cliente"> <input
+							type="submit" value="Cerca">
+					</div>
+				</div>
+			</form>
+		</div>
+
+
+
+
+		<div class="type-details w-auto ">
+			<form  action="/web/fatture/getbydata" method="GET" >
+				<div class="form-label mb-4 form-group">
+					<label class="scritta"for="floatingInput3">Ricerca per Data</label>
+					<div class="d-flex">
+						<input type="text" class="form-control" name="data" placeholder="yyyy-MM-dd"
+							id="floatingInput3" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"required> <input
+							type="submit" value="Cerca">
+					</div>
+				</div>
+			</form>
+		
+
+		</div>
+
+
+		<div class="type-details w-auto">
+			<form action="/web/fatture/getbyrangeimporto" method="GET">
+				<div class="form-label mb-4 form-group">
+					<label class="scritta" for="floatingInput3">Ricerca per Range Importo</label>
+					<div class="d-flex">
+						<input type="number" name="minimo" placeholder="importo minimo"
+							aria-label="Minimo" class="form-control"><input
+							type="number" name="massimo" placeholder="importo massimo"
+							aria-label="Massimo" class="form-control"><input
+							type="submit" value="Ricerca Per Range Importo">
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="text-center">
+		<form action="/web/fatture/fatture" method="GET">
+			<button class="btn btn-info" type="submit">Tutte le Fatture</button>
+		</form>
+	</div>
+	<hr>
+	<div class="intro mb-2">
+		<div class="table-responsive">
+			<table class="table table-hover table-sm">
+				<tr>
+					<th class="scritta">Ragione Sociale</th>
+					<th class="scritta">Data Inserimento</th>
+					<th class="scritta">Numero Fattura</th>
+					<th class="scritta">Anno</th>
+					<th class="scritta">Importo</th>
+					<th class="scritta">Stato Fattura</th>
+				</tr>
+
+				<div th:each="fattura: ${fatture}">
+					<tr>
+						<td class="scritta"th:text="${fattura.getCliente().getRagioneSociale()}"></td>
+						<td class="scritta"th:text="${fattura.getDataFattura()}"></td>
+						<td class="scritta"th:text="${fattura.getNumero()}"></td>
+						<td class="scritta"th:text="${fattura.getAnno()}"></td>
+						<td class="scritta"th:text="${fattura.getImporto()}"></td>
+						<td class="scritta"th:text="${fattura.getStatoFattura()}"></td>
+						<form sec:authorize="hasRole('ROLE_ADMIN')" method="get"
+							action="#"
+							th:action="@{/web/fatture/aggiornaFattura/{id}(id=${fattura.getId()})}">
+							<td><input class="btn btn-info" type="submit" value="Aggiorna"></td>
+						</form>
+						<form sec:authorize="hasRole('ROLE_ADMIN')" method="get"
+							action="#"
+							th:action="@{/web/fatture/eliminaFattura/{id}(id=${fattura.getId()})}">
+							<td><input class="btn btn-info" type="submit"
+								onclick="return confirm('Sei sicuro di voler cancellare questa fattura?')"
+								value="Elimina"></td>
+						</form>
+					</tr>
+				</div>
+			</table>
+		</div>
+	</div>
+	<nav aria-label="Pagination" th:if="${totalPages gt 1}">
+	<ul class=" pagination justify-content-center font-weight-bold"> 
+		<li class="page-item"><a class="scritta" th:each="i:${#numbers.sequence(0, totalPages-1)}"
+			th:href="@{?pageNumber={n}(n=${i})}"><span  th:text="${i+1}"></span>	
+		</a></li>
+	</ul> 
+	</nav>
+<!-- 	<nav aria-label="Pagination" th:if="${totalPages gt 0}"> -->
+<!-- 		<ul class="pagination justify-content-center font-weight-bold"> -->
+<!-- 			<li class="page-item" -->
+<!-- 				th:classappend="${fatture.number eq 0} ? 'disabled'"><a -->
+<!-- 				class="page-link" -->
+<!-- 				th:href="@{?pageNumber={id}(id=${fatture.number lt 2 ? 1 : fatture.number})}" -->
+<!-- 				aria-label="Previous" title="Previous Page" data-toggle="tooltip"> -->
+<!-- 					<span aria-hidden="true">&laquo;</span> -->
+<!-- 			</a></li> -->
+<!-- 			<li class="page-item" -->
+<!-- 				th:classappend="${i eq fatture.number + 1} ? 'active'" -->
+<!-- 				th:each="i : ${#numbers.sequence( 1, totalPages, 1)}"> -->
+<!-- 				<a class="page-link" -->
+<!-- 				th:href="@{?pageNumber={id}(id=${i})}" -->
+<!-- 				th:text="${i}" th:title="${'Page '+ i}" data-toggle="tooltip"></a> -->
+<!-- 			</li> -->
+<!-- 			<li class="page-item" -->
+<!-- 				th:classappend="${fatture.number + 1 eq totalPages} ? 'disabled'"> -->
+<!-- 				<a class="page-link" -->
+<!-- 				th:href="@{?pageNumber={id}(id=${fatture.number + 2})}" -->
+<!-- 				aria-label="Next" title="Next Page" data-toggle="tooltip"> <span -->
+<!-- 					aria-hidden="true">&raquo;</span> -->
+<!-- 			</a> -->
+<!-- 			</li> -->
+<!-- 		</ul> -->
+<!-- 	</nav> -->
+ 
+	<div class="text-center">
+		<a href="#" class="btn btn-info" th:href="@{/web/clienti/homeclienti}">Torna
+			alla home</a> </a> <a sec:authorize="hasRole('ROLE_ADMIN')" href="#"
+			class="btn btn-info" th:href="@{/web/fatture/aggiungifattura}">Aggiungi
+			Fattura</a>
+	</div>
+
+	<div class="footer bg-secondary p-2 text-center mt-2">
+		<p>copyright &copy; Powered by Giuliano Scassaioli
+		<p>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -7,28 +7,22 @@
 <title> Dashboard</title>
 
 
+
 </head>
 
 	
-	<h1 style="margin-top:5%; padding-bottom:2.5%;">Dashboard</h1>
+	<h1 style="margin-top:5%; padding-bottom:2.5%;">Dashboard Clienti</h1>
 	
 	<div class="my-container">
 		<div class="card" style="width: 20rem; margin-right:50px; margin-bottom:25%">
 			<div class="list-group">
 			
-			<a href="/clientecontroller/selectlista/lowrange" th:text="'Clienti lowrange : ' + ${lowrange.size}"class="list-group-item list-group-item-action"></a>
+			<a href="/clientecontroller/selectlista/lowrange" th:text="'Clienti lowrange : ' + ${lowrange.size}" class="list-group-item list-group-item-action"></a>
 			<a href="/clientecontroller/selectlista/midrange" th:text="'Clienti midrange : ' + ${midrange.size}" class="list-group-item list-group-item-action"></a>
 			<a href="/clientecontroller/selectlista/highrange" th:text="'Clienti highrange : ' + ${highrange.size}" class="list-group-item list-group-item-action"></a>
 			
-		
-		<div class="card" style="width: 10rem; margin-right:20px;">
-		
-			<div class="list-group" th:each="kv:${mappa}">
-				<a th:href="@{/clientecontroller/selectregione/{nome}(nome=${kv.key.nome})}" th:text="${kv.key.nome} + ': ' + ${kv.value}" class="list-group-item list-group-item-action"></a>
-				<!-- preso spunto da internet -->
 			</div>
-		</div>
-	</div>
+		
 	<a href="/elencoadmin.html">Torna alla pagina precedente</a>
 
 </body>

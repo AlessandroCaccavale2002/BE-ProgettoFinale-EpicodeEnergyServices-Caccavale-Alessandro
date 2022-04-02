@@ -67,6 +67,10 @@ public class CrudDB implements CommandLineRunner{
 		ruoli.add("ROLE_ADMIN");
 		authController.registerUser(new SignupRequest("Admin", "admin@email.com", ruoli, "password", "AdminName", "AdminSurname"));
 		
+		Set<String> ruoli2 = new HashSet<>();
+		ruoli.add("ROLE_USER");
+		authController.registerUser(new SignupRequest("user", "user@email.com", ruoli2, "password", "UserName", "UserSurname"));
+		
 		
 		Indirizzo i1 = new Indirizzo("Via delle Baleniere", 19, "00121", "marittima", comuneController.getComuneByNome("Roma"));
 		Indirizzo i2 = new Indirizzo("Via Emilio Morosini", 76, "00153", "centro", comuneController.getComuneByNome("Roma"));

@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+html,body{
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+.largo,html,body{
+
+background-size: cover;
+background-position: center;
+background-repeat: repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.scritta{
+	
+color:black;
+}

@@ -7,14 +7,18 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
 import it.epicode.beservice.model.Provincia;
 import it.epicode.beservice.service.ProvinciaService;
 import it.epicode.beservice.service.RegioneService;
@@ -28,22 +32,31 @@ public class ProvinciaController {
 	@Autowired
 	RegioneService regioneService;
 	
+
+	@Operation(summary = "SALVA PROVINCIA")
 	@PostMapping("/salvaprovincia")
 	public void salvaProvincia(@RequestBody Provincia p) {
 		provinciaService.salvaProvincia(p);
 	}
 	
-	@PostMapping("/aggiornaprovincia/{id}")
+
+	@Operation(summary = "AGGIORNA PROVINCIA")
+	@PutMapping("/aggiornaprovincia/{id}")
 	public void aggiornaProvincia(@PathVariable(required = true) Long id, @RequestBody Provincia p) {
 		provinciaService.updateProvincia(id, p);
 	}
 	
-	@GetMapping("/eliminaprovincia/{id}")
+	
+	@Operation(summary = "ELIMINA PROVINCIA")
+	@DeleteMapping("/eliminaprovincia/{id}")
 	public void eliminaProvincia(@PathVariable(required = true) Long id) {
 		provinciaService.eliminaProvincia(id);
 	}
+
 	
-	@GetMapping("/caricamentocsvprovince")
+	//inserisce le province
+	@GetMapping
+	("/caricamentocsvprovince")
 	public void caricamentoCsvProvince() {
 		File csvFile = new File("src/main/resources/csv/province-italiane.csv");
 		
@@ -60,6 +73,8 @@ public class ProvinciaController {
 		}
 	}
 	
+	
+	@Operation(summary = "CERCA PROVINCIA PER NOME")
 	@GetMapping("/getprovinciabynome")
 	public Provincia getProvinciaByNome(@RequestParam String nome) {
 		return provinciaService.getProvinciaByNome(nome);		

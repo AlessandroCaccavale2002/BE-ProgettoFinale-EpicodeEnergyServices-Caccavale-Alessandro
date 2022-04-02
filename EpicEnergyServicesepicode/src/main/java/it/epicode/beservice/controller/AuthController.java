@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import io.swagger.v3.oas.annotations.Operation;
 import it.epicode.beservice.model.Role;
 import it.epicode.beservice.model.RoleType;
 import it.epicode.beservice.model.User;
@@ -45,6 +46,7 @@ public class AuthController {
 	@Autowired
 	RoleRepository roleRepository;
 
+	@Operation(summary = "LOGIN")
 	@PostMapping("/login")
 	public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
 		Authentication authentication = authenticationManager.authenticate(
@@ -83,6 +85,7 @@ public class AuthController {
 		return loginView;
 	}
 
+	@Operation(summary = "SIGN UP")
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
